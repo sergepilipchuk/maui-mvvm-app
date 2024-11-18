@@ -1,0 +1,13 @@
+global using global::System;
+global using global::System.ComponentModel;
+global using global::System.Collections;
+global using global::System.Collections.Generic;
+global using global::System.Collections.ObjectModel;
+global using global::System.Linq;
+global using global::System.Collections.Specialized;
+global using global::System.Threading;
+global using global::System.Threading.Tasks;
+global using global::System.IO;
+global using global::DevExpress.Maui.Mvvm;
+global using CommunityToolkit.Mvvm.Input;
+global using CommunityToolkit.Mvvm.ComponentModel;

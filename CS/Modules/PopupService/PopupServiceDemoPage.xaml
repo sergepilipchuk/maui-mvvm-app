@@ -1,0 +1,92 @@
+﻿<ContentPage
+    x:Class="MvvmDemo.Modules.PopupServiceDemo.PopupServiceDemoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:MvvmDemo.Common;assembly=MvvmDemo"
+    xmlns:local="clr-namespace:MvvmDemo.Modules.PopupServiceDemo;assembly=MvvmDemo"
+    xmlns:dx="http://schemas.devexpress.com/maui"
+    xmlns:t="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    BindingContext="{dx:Ioc Type={x:Type local:PopupServiceDemoViewModel}}"
+    Title="{common:ModuleTitle}">
+
+    <ContentPage.Resources>
+        <DataTemplate x:Key="DXPopupAlert.CustomContent.Template">
+            <dx:DXStackLayout
+                Margin="24,0,24,0"
+                BorderThickness="0,1,0,1"
+                BorderColor="{dx:ThemeColor Key=OutlineVariant}"
+                Orientation="Vertical"
+                ItemSpacing="16"
+                Padding="0,16,0,16"
+                ItemsSource="{Binding AlertCustomContentItems}">
+                <dx:DXStackLayout.ItemTemplate>
+                    <DataTemplate>
+                        <dx:DXDockLayout HorizontalSpacing="12">
+                            <dx:DXImage
+                                dx:DXDockLayout.Dock="Left"
+                                Source="{Binding Photo}"
+                                WidthRequest="40"
+                                HeightRequest="40">
+                                <Image.Clip>
+                                    <EllipseGeometry
+                                        RadiusX="20"
+                                        RadiusY="20"
+                                        Center="20, 20" />
+                                </Image.Clip>
+                            </dx:DXImage>
+                            <Label
+                                Text="{Binding Text}"
+                                TextColor="{dx:ThemeColor Key=OnSurface}"
+                                VerticalTextAlignment="Center" />
+                        </dx:DXDockLayout>
+                    </DataTemplate>
+                </dx:DXStackLayout.ItemTemplate>
+            </dx:DXStackLayout>
+        </DataTemplate>
+        <Style x:Key="DXPopupAlert.CustomContent.Style" TargetType="dx:DXPopupDialog">
+            <Setter Property="Content" Value="{Binding}" />
+            <Setter Property="ContentTemplate" Value="{StaticResource DXPopupAlert.CustomContent.Template}" />
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid Margin="0,4">
+        <Grid.Resources>
+            <ResourceDictionary Source="Styles.xaml" />
+        </Grid.Resources>
+        <dx:DXStackLayout ItemSpacing="8">
+            <dx:FormGroupItem>
+                <dx:FormCheckItem Text="Allow Scrim" IsChecked="{Binding AllowScrim}" />
+                <dx:FormCheckItem Text="Close on Scrim Tap" IsChecked="{Binding CloseOnScrimTap}" />
+                <dx:FormItem
+                    Text="Result"
+                    InlineContent="{Binding Result}"
+                    InlineContentTemplate="{StaticResource InlineContentTemplate.Bold}"/>
+            </dx:FormGroupItem>
+
+            <dx:DXButton
+                Content="Alert with Icon"
+                Command="{Binding ShowAlertWithIconCommand}"
+                Margin="0,24,0,0"/>
+            <dx:DXButton Content="Alert without Icon" Command="{Binding ShowAlertWithoutIconCommand}" />
+            <dx:DXButton Content="Alert with Custom Content" Command="{Binding ShowAlertWithCustomContentCommand}" />
+
+            <dx:DXButton
+                Content="Action Sheet with Icons"
+                Command="{Binding ShowActionSheetWithIconsCommand}"
+                Margin="0,24,0,0" />
+            <dx:DXButton Content="Action Sheet without Icons" Command="{Binding ShowActionSheetWithoutIconsCommand}" />
+            <dx:DXButton Content="Action Sheet without Cancel" Command="{Binding ShowActionSheetWithoutCancelCommand}" />
+
+            <dx:DXButton
+                Content="Option Sheet with Radio Buttons"
+                Command="{Binding ShowOptionSheetWithRadioButtonsCommand}"
+                Margin="0,24,0,0" />
+            <dx:DXButton Content="Option Sheet with Check Boxes" Command="{Binding ShowOptionSheetWithCheckBoxesCommand}" />
+
+            <dx:DXButton
+                Content="Custom Popup"
+                Command="{Binding ShowCustomPopupCommand}"
+                Margin="0,24,0,0" />
+        </dx:DXStackLayout>
+    </Grid>
+</ContentPage>

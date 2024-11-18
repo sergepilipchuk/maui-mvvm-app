@@ -1,0 +1,37 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:dx="http://schemas.devexpress.com/maui">
+
+    <Style x:Key="FormItemBase.Style" TargetType="dx:FormItemBase">
+        <Setter Property="TextMargin" Value="12,0" />
+        <Setter Property="DetailMargin" Value="12,0" />
+        <Setter Property="DetailFontSize" Value="14" />
+        <Setter Property="DetailColor" Value="{dx:ThemeColor Key=OnSurfaceVariant}" />
+    </Style>
+
+    <Style
+        TargetType="dx:FormItemBase"
+        BasedOn="{StaticResource FormItemBase.Style}"
+        ApplyToDerivedTypes="True" />
+    <Style TargetType="dx:FormItem" BasedOn="{StaticResource FormItemBase.Style}">
+        <Setter Property="AllowTap" Value="False" />
+    </Style>
+
+    <DataTemplate x:Key="InlineContentTemplate.Bold">
+        <Label
+            Text="{Binding}"
+            TextColor="{dx:ThemeColor Key=OnSurface}"
+            FontSize="16"
+            FontAttributes="Bold" />
+    </DataTemplate>
+
+    <Style TargetType="dx:FormGroupItem">
+        <Setter Property="Padding" Value="0" />
+    </Style>
+
+    <Style TargetType="dx:DXButton">
+        <Setter Property="ButtonType" Value="Filled" />
+        <Setter Property="WidthRequest" Value="300" />
+    </Style>
+</ResourceDictionary>

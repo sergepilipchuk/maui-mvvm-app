@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFrameworks>net8.0-android;net8.0-ios</TargetFrameworks>
+		<OutputType>Exe</OutputType>
+		<RootNamespace>MvvmDemo</RootNamespace>
+		<Nullable>enable</Nullable>
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <NoWarn>$(NoWarn);CA1416;NU1603;NU1608</NoWarn>
+        <UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+        <ApplicationTitle>DX Mvvm Demo</ApplicationTitle>
+		<ApplicationId>com.devexpress.mvvmdemo</ApplicationId>
+		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
+		<ApplicationVersion>1</ApplicationVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">12.2</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">24.0</SupportedOSPlatformVersion>
+	</PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="DevExpress.Maui.Mvvm" Version="24.2.1-alpha-*" />
+        <PackageReference Include="DevExpress.Maui.Core" Version="24.2.1-alpha-*" />
+        <PackageReference Include="DevExpress.Maui.Controls" Version="24.2.1-alpha-*" />
+        <PackageReference Include="DevExpress.Maui.Editors" Version="24.2.1-alpha-*" />
+        <PackageReference Include="DevExpress.Maui.CollectionView" Version="24.2.1-alpha-*" />
+        <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.*" />
+        <PackageReference Include="DotNetMeteor.HotReload.Plugin" Version="3.*" />
+        <PackageReference Include="CommunityToolkit.Maui" Version="8.0.*" />
+    </ItemGroup>
+
+	<ItemGroup>
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+		<MauiFont Include="Resources\Fonts\*" />
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+</Project>

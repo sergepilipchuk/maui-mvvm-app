@@ -1,0 +1,46 @@
+﻿<ContentPage
+    x:Class="MvvmDemo.Modules.NavigationServiceDemo.NavigationServiceDetailPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:MvvmDemo.Common;assembly=MvvmDemo"
+    xmlns:local="clr-namespace:MvvmDemo.Modules.NavigationServiceDemo;assembly=MvvmDemo"
+    xmlns:dx="http://schemas.devexpress.com/maui"
+    xmlns:t="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    BindingContext="{dx:Ioc Type={x:Type local:NavigationServiceDetailViewModel}}"
+    Title="{common:ModuleTitle}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary Source="Styles.xaml" />
+    </ContentPage.Resources>
+
+    <Shell.PresentationMode>
+        <Binding Path="IsModal">
+            <Binding.Converter>
+                <t:BoolToObjectConverter
+                    x:TypeArguments="PresentationMode"
+                    TrueObject="Modal"
+                    FalseObject="Animated" />
+            </Binding.Converter>
+        </Binding>
+    </Shell.PresentationMode>
+
+    <ContentPage.Behaviors>
+        <t:EventToCommandBehavior EventName="NavigatedTo" Command="{Binding OnNavigatedToCommand}" />
+    </ContentPage.Behaviors>
+
+    <Grid>
+        <dx:DXStackLayout>
+            <dx:FormGroupItem>
+                <dx:FormItem Text="CurrentLocation" Detail="{Binding CurrentLocation}" />
+                <dx:FormItem Text="View Model Instance Number" InlineContent="{Binding InstanceNumber, StringFormat='{}#{0}'}" />
+                <dx:FormItem InlineContent="{Binding NavigationParameter}" Text="Navigation Parameter" />
+            </dx:FormGroupItem>
+            <dx:DXButton
+                Content="Go Back"
+                Command="{Binding GoBackCommand}"
+                ButtonType="Filled"
+                WidthRequest="280"
+                Margin="24" />
+        </dx:DXStackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,63 @@
+﻿<dx:DXPopupDialog
+    x:Class="MvvmDemo.Modules.PopupServiceDemo.LoginPopup"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MvvmDemo.Modules.PopupServiceDemo;assembly=MvvmDemo"
+    xmlns:dx="http://schemas.devexpress.com/maui"
+    xmlns:t="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    Title="DevExpress"
+    Message="Please enter your login and password"
+    AllowScrim="{Binding AllowScrim}"
+    CloseOnScrimTap="{Binding CloseOnScrimTap}"
+    OKButtonText="Login"
+    OKButtonCommand="{Binding LoginCommand}"
+    CancelButtonText="Cancel"
+    CloseOnOKButton="False"
+    CloseOnCancelButton="True">
+
+    <dx:DXPopupDialog.OKButtonStyle>
+        <Style TargetType="dx:DXButton">
+            <Style.Triggers>
+                <DataTrigger
+                    TargetType="dx:DXButton"
+                    Binding="{Binding LoginCommand.IsRunning}"
+                    Value="True">
+                    <Setter Property="ContentTemplate">
+                        <Setter.Value>
+                            <DataTemplate>
+                                <ActivityIndicator
+                                    WidthRequest="24"
+                                    HeightRequest="24"
+                                    IsRunning="True"
+                                    Color="{dx:ThemeColor Key=Primary}" />
+                            </DataTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </dx:DXPopupDialog.OKButtonStyle>
+
+    <dx:DXStackLayout
+        Padding="24,0"
+        Orientation="Vertical"
+        ItemSpacing="12">
+        <dx:TextEdit
+            LabelText="Login"
+            StartIcon="login"
+            Text="{Binding Login.Value}"
+            TextChangedCommand="{Binding Login.ClearErrorCommand}"
+            HasError="{Binding Login.IsValid, Converter={t:InvertedBoolConverter}}"
+            ErrorText="{Binding Login.Error}"
+            ReturnType="Next" />
+        <dx:PasswordEdit
+            LabelText="Password"
+            StartIcon="password"
+            Text="{Binding Password.Value}"
+            TextChangedCommand="{Binding Password.ClearErrorCommand}"
+            HasError="{Binding Password.IsValid, Converter={t:InvertedBoolConverter}}"
+            ErrorText="{Binding Password.Error}"
+            ReturnCommand="{Binding LoginCommand}" />
+    </dx:DXStackLayout>
+
+</dx:DXPopupDialog>

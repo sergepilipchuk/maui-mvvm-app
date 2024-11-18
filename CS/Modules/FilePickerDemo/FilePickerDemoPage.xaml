@@ -1,0 +1,40 @@
+﻿<ContentPage
+    x:Class="MvvmDemo.Modules.FilePickerDemo.FilePickerDemoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:MvvmDemo.Common;assembly=MvvmDemo"
+    xmlns:local="clr-namespace:MvvmDemo.Modules.FilePickerDemo;assembly=MvvmDemo"
+    xmlns:dx="http://schemas.devexpress.com/maui"
+    xmlns:t="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    BindingContext="{dx:Ioc Type={x:Type local:FilePickerDemoViewModel}}"
+    Title="{common:ModuleTitle}">
+
+    <Grid Margin="16">
+        <dx:DXBorder
+            BackgroundColor="{dx:ThemeColor Key=SurfaceContainer}"
+            VerticalOptions="Start"
+            CornerRadius="16"
+            Padding="16">
+            <dx:DXStackLayout Orientation="Vertical" ItemSpacing="4">
+                <Label
+                    Text="Picked File"
+                    TextColor="{dx:ThemeColor Key=OnSurface}"
+                    FontSize="20" />
+                <Label
+                    Text="{Binding PickedFile}"
+                    TextColor="{dx:ThemeColor Key=OnSurface}"
+                    FontSize="16"
+                    IsVisible="{Binding PickedFile, Converter={t:IsStringNotNullOrEmptyConverter}}" />
+            </dx:DXStackLayout>
+        </dx:DXBorder>
+        <dx:DXButton
+            Content="Open Document"
+            Icon="file_open"
+            Command="{Binding OpenCommand}"
+            ButtonType="Filled"
+            HorizontalOptions="End"
+            VerticalOptions="End"
+            Padding="18"
+            CornerRadius="16" />
+    </Grid>
+</ContentPage>

@@ -1,0 +1,46 @@
+﻿<ContentPage
+    x:Class="MvvmDemo.Modules.HomeModule.HomePage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:MvvmDemo.Common;assembly=MvvmDemo"
+    xmlns:local="clr-namespace:MvvmDemo.Modules.HomeModule;assembly=MvvmDemo"
+    xmlns:dx="http://schemas.devexpress.com/maui"
+    xmlns:t="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    BindingContext="{dx:Ioc Type={x:Type local:HomeViewModel}}"
+    Title="{common:ModuleTitle}">
+
+    <Grid>
+        <dx:DXCollectionView
+            x:Name="collectionView"
+            Margin="16"
+            ItemsSource="{Binding Demos}"
+            UseRippleEffect="False"
+            ItemSpacing="12">
+            <dx:DXCollectionView.ItemTemplate>
+                <DataTemplate>
+                    <dx:DXButton
+                        Padding="16,8"
+                        ButtonType="ToolButton"
+                        UseRippleEffect="True"
+                        CornerRadius="16"
+                        HorizontalContentAlignment="Fill"
+                        BackgroundColor="{dx:ThemeColor Key=SurfaceContainer}"
+                        Command="{Binding Path=BindingContext.ShowDemoCommand, Source={x:Reference Name=collectionView}}"
+                        CommandParameter="{Binding}">
+                        <dx:DXDockLayout VerticalSpacing="4">
+                            <Label
+                                dx:DXDockLayout.Dock="Top"
+                                FontSize="16"
+                                Text="{Binding Title}"
+                                TextColor="{dx:ThemeColor Key=OnSurface}" />
+                            <Label
+                                FontSize="14"
+                                Text="{Binding Description}"
+                                TextColor="{dx:ThemeColor Key=OnSurfaceVariant}" />
+                        </dx:DXDockLayout>
+                    </dx:DXButton>
+                </DataTemplate>
+            </dx:DXCollectionView.ItemTemplate>
+        </dx:DXCollectionView>
+    </Grid>
+</ContentPage>

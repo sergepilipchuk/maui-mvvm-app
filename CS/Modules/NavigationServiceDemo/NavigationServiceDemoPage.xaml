@@ -1,0 +1,53 @@
+﻿<ContentPage
+    x:Class="MvvmDemo.Modules.NavigationServiceDemo.NavigationServiceDemoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:MvvmDemo.Common;assembly=MvvmDemo"
+    xmlns:local="clr-namespace:MvvmDemo.Modules.NavigationServiceDemo;assembly=MvvmDemo"
+    xmlns:dx="http://schemas.devexpress.com/maui"
+    xmlns:t="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    BindingContext="{dx:Ioc Type={x:Type local:NavigationServiceDemoViewModel}}"
+    Title="{common:ModuleTitle}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary Source="Styles.xaml" />
+    </ContentPage.Resources>
+
+    <ContentPage.Behaviors>
+        <t:EventToCommandBehavior EventName="NavigatedTo" Command="{Binding OnNavigatedToCommand}" />
+    </ContentPage.Behaviors>
+
+    <Grid Margin="0,4">
+        <dx:DXStackLayout>
+            <dx:FormGroupItem>
+                <dx:FormItem Text="CurrentLocation" Detail="{Binding CurrentLocation}" />
+                <dx:FormItem
+                    Text="View Model Instance Number"
+                    InlineContent="{Binding InstanceNumber, StringFormat='{}#{0}'}"
+                    InlineContentTemplate="{StaticResource InlineContentTemplate.Bold}" />
+                <dx:FormItem
+                    InlineContent="{Binding NavigationParameter}"
+                    InlineContentTemplate="{StaticResource InlineContentTemplate.Bold}"
+                    Text="Navigation Parameter"
+                    AllowTap="False">
+                    <dx:DXSlider
+                        x:Name="navigationParameter"
+                        MaxValue="10"
+                        MinValue="0"
+                        TickmarkStep="1"
+                        TooltipShowMode="Never"
+                        ValueStep="1"
+                        Margin="12,0"
+                        Value="{Binding NavigationParameter, Mode=TwoWay}" />
+                </dx:FormItem>
+                <dx:FormCheckItem Text="Show Modal" IsChecked="{Binding ShowModal}" />
+            </dx:FormGroupItem>
+            <dx:DXButton
+                Content="Show Detail Form"
+                Command="{Binding ShowDetailFormCommand}"
+                ButtonType="Filled"
+                WidthRequest="280"
+                Margin="24" />
+        </dx:DXStackLayout>
+    </Grid>
+</ContentPage>

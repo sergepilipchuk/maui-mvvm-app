@@ -1,0 +1,32 @@
+﻿<ContentPage
+    x:Class="MvvmDemo.Modules.LocalizationDemo.LocalizationDemoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:MvvmDemo.Common;assembly=MvvmDemo"
+    xmlns:local="clr-namespace:MvvmDemo.Modules.LocalizationDemo;assembly=MvvmDemo"
+    xmlns:dx="http://schemas.devexpress.com/maui"
+    xmlns:t="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    BindingContext="{dx:Ioc Type={x:Type local:LocalizationDemoViewModel}}"
+    Title="{common:ModuleTitle}">
+
+    <ContentPage.Resources>
+        <ResourceDictionary Source="Styles.xaml" />
+    </ContentPage.Resources>
+
+    <Grid Margin="0,4">
+        <dx:DXStackLayout ItemSpacing="16">
+            <dx:FormGroupItem>
+                <dx:FormItem Text="SimpleString" Detail="{Binding SimpleString.Value}" />
+                <dx:FormItem Text="SimpleString using MarkupExtension" Detail="{dx:Localizer Key={x:Static local:StringId.SimpleString}}" />
+                <dx:FormItem Text="ParameterizedString" Detail="{Binding ParameterizedString.Value}" />
+            </dx:FormGroupItem>
+            <dx:TextEdit
+                LabelText="Parameter"
+                Text="{Binding Parameter}"
+                Margin="18,0" />
+            <dx:DXButton
+                Content="Change Culture"
+                Command="{Binding ChangeLanguageCommand}" />
+        </dx:DXStackLayout>
+    </Grid>
+</ContentPage>

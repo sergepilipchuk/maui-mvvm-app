@@ -1,0 +1,27 @@
+﻿<ContentPage
+    x:Class="MvvmDemo.Modules.DispatcherDemo.DispatcherDemoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:MvvmDemo.Common;assembly=MvvmDemo"
+    xmlns:local="clr-namespace:MvvmDemo.Modules.DispatcherDemo;assembly=MvvmDemo"
+    xmlns:dx="http://schemas.devexpress.com/maui"
+    xmlns:t="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    BindingContext="{dx:Ioc Type={x:Type local:DispatcherDemoViewModel}}"
+    Title="{common:ModuleTitle}">
+
+    <Grid>
+        <dx:DXDockLayout>
+            <dx:DXButton
+                dx:DXDockLayout.Dock="Bottom"
+                Content="Generate Items"
+                Icon="plus"
+                Command="{Binding GenerateItemsCommand}"
+                ButtonType="Filled"
+                HorizontalOptions="End"
+                Padding="18"
+                CornerRadius="16" 
+                Margin="16" />
+            <dx:DXCollectionView ItemsSource="{Binding Items}" />
+        </dx:DXDockLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,24 @@
+﻿<ContentPage
+    x:Class="MvvmDemo.Modules.SaveFilePickerDemo.SaveFilePickerDemoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:dx="http://schemas.devexpress.com/maui"
+    xmlns:t="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    xmlns:common="clr-namespace:MvvmDemo.Common;assembly=MvvmDemo"
+    xmlns:local="clr-namespace:MvvmDemo.Modules.SaveFilePickerDemo;assembly=MvvmDemo"
+    BindingContext="{dx:Ioc Type={x:Type local:SaveFilePickerDemoViewModel}}"
+    Title="{common:ModuleTitle}">
+
+    <Grid>
+        <dx:DXButton
+            Content="Save Document"
+            Icon="download"
+            Command="{Binding SaveCommand}"
+            ButtonType="Filled"
+            HorizontalOptions="End"
+            VerticalOptions="End"
+            Margin="16"
+            Padding="18"
+            CornerRadius="16" />
+    </Grid>
+</ContentPage>

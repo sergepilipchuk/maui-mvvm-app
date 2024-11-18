@@ -1,0 +1,51 @@
+﻿<ContentPage
+    x:Class="MvvmDemo.Modules.FileSystemDemo.FileSystemDemoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:MvvmDemo.Common;assembly=MvvmDemo"
+    xmlns:local="clr-namespace:MvvmDemo.Modules.FileSystemDemo;assembly=MvvmDemo"
+    xmlns:dx="http://schemas.devexpress.com/maui"
+    xmlns:t="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+    BindingContext="{dx:Ioc Type={x:Type local:FileSystemDemoViewModel}}"
+    Title="{common:ModuleTitle}">
+
+    <Grid Margin="16">
+        <dx:DXStackLayout ItemSpacing="12">
+            <dx:DXBorder
+                BackgroundColor="{dx:ThemeColor Key=SurfaceContainer}"
+                VerticalOptions="Start"
+                CornerRadius="16"
+                Padding="16">
+                <dx:DXStackLayout Orientation="Vertical" ItemSpacing="4">
+                    <Label
+                        Text="AppDataDirectory"
+                        TextColor="{dx:ThemeColor Key=OnSurface}"
+                        FontSize="20" />
+                    <Label
+                        Text="{Binding AppDataDirectory}"
+                        TextColor="{dx:ThemeColor Key=OnSurface}"
+                        FontSize="16"
+                        IsVisible="{Binding PickedFile, Converter={t:IsStringNotNullOrEmptyConverter}}" />
+                </dx:DXStackLayout>
+            </dx:DXBorder>
+
+            <dx:DXBorder
+                BackgroundColor="{dx:ThemeColor Key=SurfaceContainer}"
+                VerticalOptions="Start"
+                CornerRadius="16"
+                Padding="16">
+                <dx:DXStackLayout Orientation="Vertical" ItemSpacing="4">
+                    <Label
+                        Text="CacheDirectory"
+                        TextColor="{dx:ThemeColor Key=OnSurface}"
+                        FontSize="20" />
+                    <Label
+                        Text="{Binding CacheDirectory}"
+                        TextColor="{dx:ThemeColor Key=OnSurface}"
+                        FontSize="16"
+                        IsVisible="{Binding PickedFile, Converter={t:IsStringNotNullOrEmptyConverter}}" />
+                </dx:DXStackLayout>
+            </dx:DXBorder>
+        </dx:DXStackLayout>
+    </Grid>
+</ContentPage>
