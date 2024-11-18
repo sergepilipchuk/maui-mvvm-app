@@ -31,7 +31,7 @@
     <Grid>
         <dx:DXStackLayout>
             <dx:FormGroupItem>
-                <dx:FormItem Text="CurrentLocation" Detail="{Binding CurrentLocation}" />
+                <dx:FormItem Text="Current Location" Detail="{Binding CurrentLocation}" />
                 <dx:FormItem Text="View Model Instance Number" InlineContent="{Binding InstanceNumber, StringFormat='{}#{0}'}" />
                 <dx:FormItem InlineContent="{Binding NavigationParameter}" Text="Navigation Parameter" />
             </dx:FormGroupItem>

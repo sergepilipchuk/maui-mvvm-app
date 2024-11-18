@@ -41,12 +41,12 @@ public class PopupServiceDemoViewModel : DXObservableObject {
         return ShowAlertCore(false, null);
     }
     Task ShowAlertWithCustomContent() {
-        var message = "This will reset your app preferences back to their default settings. The following accounts will also be signed out:";
+        var message = "This action will reset your app preferences back to their default settings. The following accounts will also be signed out:";
         return ShowAlertCore(false, "DXPopupAlert.CustomContent.Style", message);
     }
     async Task ShowAlertCore(bool showIcon, string? styleKey, string? message = null) {
         var title = "Reset Settings?";
-        message ??= "This will reset your app preferences back to their default settings.";
+        message ??= "This action will reset your app preferences back to their default settings.";
         var icon = showIcon ? "restart" : null;
 
         var res = await popupService.ShowAlert(

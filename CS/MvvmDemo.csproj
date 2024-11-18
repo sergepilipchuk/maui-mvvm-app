@@ -17,13 +17,13 @@
 	</PropertyGroup>
     
     <ItemGroup>
-        <PackageReference Include="DevExpress.Maui.Mvvm" Version="24.2.1-alpha-*" />
-        <PackageReference Include="DevExpress.Maui.Core" Version="24.2.1-alpha-*" />
-        <PackageReference Include="DevExpress.Maui.Controls" Version="24.2.1-alpha-*" />
-        <PackageReference Include="DevExpress.Maui.Editors" Version="24.2.1-alpha-*" />
-        <PackageReference Include="DevExpress.Maui.CollectionView" Version="24.2.1-alpha-*" />
+        <PackageReference Include="DevExpress.Maui.Mvvm" Version="24.2.*" />
+        <PackageReference Include="DevExpress.Maui.Core" Version="24.2.*" />
+        <PackageReference Include="DevExpress.Maui.Controls" Version="24.2.*" />
+        <PackageReference Include="DevExpress.Maui.Editors" Version="24.2.*" />
+        <PackageReference Include="DevExpress.Maui.CollectionView" Version="24.2.*" />
         <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.*" />
-        <PackageReference Include="DotNetMeteor.HotReload.Plugin" Version="3.*" />
+        <PackageReference Include="DotNetMeteor.HotReload.Plugin" Version="3.*" /> <!--REMOVE-->
         <PackageReference Include="CommunityToolkit.Maui" Version="8.0.*" />
     </ItemGroup>
 
