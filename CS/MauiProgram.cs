@@ -2,7 +2,6 @@ using System.Resources;
 using CommunityToolkit.Maui;
 using CommunityToolkit.Mvvm.DependencyInjection;
 using DevExpress.Maui;
-using DotNet.Meteor.HotReload.Plugin;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Controls.Hosting;
@@ -23,7 +22,6 @@ public static class MauiProgram {
             .UseDevExpressControls()
             .UseDevExpressEditors()
             .UseDevExpressCollectionView()
-            .EnableHotReload()
             .ConfigureFonts(fonts => {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");

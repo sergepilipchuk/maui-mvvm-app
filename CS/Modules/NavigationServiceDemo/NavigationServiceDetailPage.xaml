@@ -16,7 +16,7 @@
     <Shell.PresentationMode>
         <Binding Path="IsModal">
             <Binding.Converter>
-                <t:BoolToObjectConverter
+                <common:BoolToObjectConverter
                     x:TypeArguments="PresentationMode"
                     TrueObject="Modal"
                     FalseObject="Animated" />

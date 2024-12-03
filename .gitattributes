@@ -2,3 +2,11 @@ VB/* linguist-vendored
 scripts linguist-vendored
 *.css linguist-detectable=false
 *.aff linguist-detectable=false
+
+*.cs text eol=crlf
+*.xaml text eol=crlf
+*.xml text eol=crlf
+*.plist text eol=crlf
+*.svg text eol=crlf
+*.txt text eol=crlf
+*.csproj text eol=crlf

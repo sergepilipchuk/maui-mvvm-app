@@ -3,6 +3,7 @@ using Microsoft.Maui.Controls.Xaml;
 
 namespace MvvmDemo.Common;
 
+[RequireService([ typeof(IProvideValueTarget) ])]
 public class ModuleTitleExtension : IMarkupExtension {
     object IMarkupExtension.ProvideValue(IServiceProvider serviceProvider) {
         var valueProvider = serviceProvider.GetRequiredService<IProvideValueTarget>();

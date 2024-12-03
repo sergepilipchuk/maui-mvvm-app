@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
-		<TargetFrameworks>net8.0-android;net8.0-ios</TargetFrameworks>
+		<TargetFrameworks>net9.0-android;net9.0-ios</TargetFrameworks>
 		<OutputType>Exe</OutputType>
 		<RootNamespace>MvvmDemo</RootNamespace>
 		<Nullable>enable</Nullable>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-        <NoWarn>$(NoWarn);CA1416;NU1603;NU1608</NoWarn>
+        <NoWarn>$(NoWarn);CA1416;NU1603</NoWarn>
         <UseMaui>true</UseMaui>
 		<SingleProject>true</SingleProject>
         <ApplicationTitle>DX Mvvm Demo</ApplicationTitle>
@@ -15,18 +15,16 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">12.2</SupportedOSPlatformVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">24.0</SupportedOSPlatformVersion>
 	</PropertyGroup>
-    
+    <Import Project="$(MSBuildThisFileDirectory)..\Packages.Build.props" />
     <ItemGroup>
-        <PackageReference Include="DevExpress.Maui.Mvvm" Version="24.2.*" />
-        <PackageReference Include="DevExpress.Maui.Core" Version="24.2.*" />
-        <PackageReference Include="DevExpress.Maui.Controls" Version="24.2.*" />
-        <PackageReference Include="DevExpress.Maui.Editors" Version="24.2.*" />
-        <PackageReference Include="DevExpress.Maui.CollectionView" Version="24.2.*" />
-        <PackageReference Include="Microsoft.Maui.Controls" Version="8.0.*" />
-        <PackageReference Include="DotNetMeteor.HotReload.Plugin" Version="3.*" /> <!--REMOVE-->
-        <PackageReference Include="CommunityToolkit.Maui" Version="8.0.*" />
+        <PackageReference Include="DevExpress.Maui.Mvvm" Version="$(DevExpress_Maui)" />
+        <PackageReference Include="DevExpress.Maui.Core" Version="$(DevExpress_Maui)" />
+        <PackageReference Include="DevExpress.Maui.Controls" Version="$(DevExpress_Maui)" />
+        <PackageReference Include="DevExpress.Maui.Editors" Version="$(DevExpress_Maui)" />
+        <PackageReference Include="DevExpress.Maui.CollectionView" Version="$(DevExpress_Maui)" />
+        <PackageReference Include="Microsoft.Maui.Controls" Version="$(Microsoft_Maui_Controls)" />
+        <PackageReference Include="CommunityToolkit.Maui" Version="$(CommunityToolkit_Maui)" />
     </ItemGroup>
-
 	<ItemGroup>
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />

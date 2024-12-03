@@ -25,7 +25,7 @@
                         Text="{Binding AppDataDirectory}"
                         TextColor="{dx:ThemeColor Key=OnSurface}"
                         FontSize="16"
-                        IsVisible="{Binding PickedFile, Converter={t:IsStringNotNullOrEmptyConverter}}" />
+                        IsVisible="{Binding PickedFile, Converter={common:IsStringNotNullOrEmptyConverter}}" />
                 </dx:DXStackLayout>
             </dx:DXBorder>
 
@@ -43,7 +43,7 @@
                         Text="{Binding CacheDirectory}"
                         TextColor="{dx:ThemeColor Key=OnSurface}"
                         FontSize="16"
-                        IsVisible="{Binding PickedFile, Converter={t:IsStringNotNullOrEmptyConverter}}" />
+                        IsVisible="{Binding PickedFile, Converter={common:IsStringNotNullOrEmptyConverter}}" />
                 </dx:DXStackLayout>
             </dx:DXBorder>
         </dx:DXStackLayout>

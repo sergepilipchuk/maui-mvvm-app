@@ -5,6 +5,8 @@ namespace MvvmDemo;
 public partial class App : Application {
     public App() {
         InitializeComponent();
-        MainPage = new AppShell();
+    }
+    protected override Window CreateWindow(Microsoft.Maui.IActivationState? activationState) {
+        return new Window(new AppShell());
     }
 }
