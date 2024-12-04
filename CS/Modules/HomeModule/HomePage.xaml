@@ -2,8 +2,8 @@
     x:Class="MvvmDemo.Modules.HomeModule.HomePage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:common="clr-namespace:MvvmDemo.Common;assembly=MvvmDemo"
     xmlns:local="clr-namespace:MvvmDemo.Modules.HomeModule;assembly=MvvmDemo"
+    xmlns:common="clr-namespace:MvvmDemo.Common;assembly=MvvmDemo"
     xmlns:dx="http://schemas.devexpress.com/maui"
     xmlns:t="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     BindingContext="{dx:Ioc Type={x:Type local:HomeViewModel}}"
@@ -15,30 +15,26 @@
             Margin="16"
             ItemsSource="{Binding Demos}"
             UseRippleEffect="False"
-            ItemSpacing="12">
+            ItemSpacing="8">
             <dx:DXCollectionView.ItemTemplate>
                 <DataTemplate>
                     <dx:DXButton
-                        Padding="16,8"
+                        Padding="16,14"
                         ButtonType="ToolButton"
                         UseRippleEffect="True"
-                        CornerRadius="16"
+                        CornerRadius="8"
                         HorizontalContentAlignment="Fill"
+                        VerticalContentAlignment="Center"
                         BackgroundColor="{dx:ThemeColor Key=SurfaceContainer}"
                         Command="{Binding Path=BindingContext.ShowDemoCommand, Source={x:Reference Name=collectionView}}"
-                        CommandParameter="{Binding}">
-                        <dx:DXDockLayout VerticalSpacing="4">
-                            <Label
-                                dx:DXDockLayout.Dock="Top"
-                                FontSize="16"
-                                Text="{Binding Title}"
-                                TextColor="{dx:ThemeColor Key=OnSurface}" />
-                            <Label
-                                FontSize="14"
-                                Text="{Binding Description}"
-                                TextColor="{dx:ThemeColor Key=OnSurfaceVariant}" />
-                        </dx:DXDockLayout>
-                    </dx:DXButton>
+                        CommandParameter="{Binding}"
+                        Icon="arrow_forward"
+                        Content="{Binding Title}"
+                        IconPlacement="Right"
+                        FontSize="16"
+                        FontAttributes="None"
+                        TextColor="{dx:ThemeColor Key=OnSurface}"
+                        IconColor="{dx:ThemeColor Key=Outline}" />
                 </DataTemplate>
             </dx:DXCollectionView.ItemTemplate>
         </dx:DXCollectionView>

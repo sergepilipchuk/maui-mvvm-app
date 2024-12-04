@@ -22,7 +22,7 @@
         <Setter Property="Padding" Value="0" />
     </Style>
 
-    <Style TargetType="dx:DXButton">
+    <Style x:Key="actionButtonStyle" TargetType="dx:DXButton">
         <Setter Property="ButtonType" Value="Filled" />
         <Setter Property="WidthRequest" Value="300" />
     </Style>

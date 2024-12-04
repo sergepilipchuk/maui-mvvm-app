@@ -2,8 +2,8 @@
     x:Class="MvvmDemo.Modules.LocalizationDemo.LocalizationDemoPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:common="clr-namespace:MvvmDemo.Common;assembly=MvvmDemo"
     xmlns:local="clr-namespace:MvvmDemo.Modules.LocalizationDemo;assembly=MvvmDemo"
+    xmlns:common="clr-namespace:MvvmDemo.Common;assembly=MvvmDemo"
     xmlns:dx="http://schemas.devexpress.com/maui"
     xmlns:t="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     BindingContext="{dx:Ioc Type={x:Type local:LocalizationDemoViewModel}}"
@@ -13,7 +13,7 @@
         <ResourceDictionary Source="Styles.xaml" />
     </ContentPage.Resources>
 
-    <Grid Margin="0,4">
+    <Grid Margin="0,4" RowDefinitions="*,Auto">
         <dx:DXStackLayout ItemSpacing="16">
             <dx:FormGroupItem>
                 <dx:FormItem Text="SimpleString" Detail="{Binding SimpleString.Value}" />
@@ -26,7 +26,37 @@
                 Margin="18,0" />
             <dx:DXButton
                 Content="Change Culture"
-                Command="{Binding ChangeLanguageCommand}" />
+                Command="{Binding ChangeLanguageCommand}"
+                Style="{StaticResource actionButtonStyle}" />
+        </dx:DXStackLayout>
+
+        <dx:DXStackLayout
+            Grid.Row="1"
+            Margin="16"
+            BackgroundColor="{dx:ThemeColor SurfaceContainer}"
+            CornerRadius="12"
+            Padding="16,12"
+            ItemSpacing="8">
+            <dx:DXStackLayout.Shadow>
+                <Shadow
+                    Brush="Black"
+                    Radius="6"
+                    Opacity="0.4"
+                    Offset="2,2" />
+            </dx:DXStackLayout.Shadow>
+            <Label
+                Text="Note"
+                FontSize="16"
+                FontAttributes="Bold"
+                TextColor="{dx:ThemeColor Key=OnSurfaceVariant}" />
+            <Label Text="Culture change operations do not work on Android devices when the application is built in the Debug configuration due to the MAUI bug." TextColor="{dx:ThemeColor Key=OnSurfaceVariant}" />
+            <dx:DXButton
+                Content="Learn more"
+                ButtonType="Text"
+                HorizontalOptions="End"
+                Margin="0,8,0,0"
+                Padding="12,10"
+                Clicked="OnLearnMoreClicked" />
         </dx:DXStackLayout>
     </Grid>
 </ContentPage>
