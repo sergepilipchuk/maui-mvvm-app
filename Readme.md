@@ -1,7 +1,9 @@
 <!-- default badges list -->
-![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/493540203/24.2.3%2B)
+![](https://img.shields.io/endpoint?url=https://codecentral.devexpress.com/api/v1/VersionRange/852254544/24.2.2%2B)
+[![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 [![](https://img.shields.io/badge/💬_Leave_Feedback-feecdd?style=flat-square)](#does-this-example-address-your-development-requirementsobjectives)
 <!-- default badges end -->
+
 # DevExpress MVVM UI for .NET MAUI
 
 The **DevExpress MAUI MVVM Library** ships as part of the [DevExpress .NET MAUI Mobile UI component suite](https://www.devexpress.com/maui/). 
@@ -18,17 +20,19 @@ Watch the following YouTube video to get started with DevExpress .NET MAUI contr
 
 ## What's in This Repository
 
-This repository contains projects designed with the **DevExpress MAUI MVVM Library**.
+This repository demonstrates basic features included in the **DevExpress MAUI MVVM Library**.
  
-* [Dispatcher](./CS/Modules/DispatcherDemo/DispatcherDemoPage.xaml/)
-* [Navigation Service](./CS/Modules/NavigationServiceDemo/NavigationServiceDemoPage.xaml/)
-* [Popup Service](./CS/Modules/PopupService/PopupServiceDemoPage.xaml/)
-* [Localization Service](./CS/Modules/LocalizationDemo/LocalizationDemoPage.xaml/)
-* [Print Service](./CS/Modules/PrintServiceDemo/PrintServiceDemoPage.xaml/)
-* [Save File Picker](./CS/Modules/SaveFilePickerDemo/SaveFilePickerDemoPage.xaml/)
-* [File Picker](./CS/Modules/FilePickerDemo/FilePickerDemoPage.xaml/)
-* [File System](./CS/Modules/FileSystemDemo/FileSystemDemoPage.xaml/)
-* [UI Service](./CS/Modules/UIServiceDemo/UIServiceDemoPage.xaml/)
+* [Dispatcher](./CS/Modules/DispatcherDemo/DispatcherDemoViewModel.cs/)
+* [Navigation Service](./CS/Modules/NavigationServiceDemo/NavigationServiceDemoViewModel.cs/)
+* [Popup Service](./CS/Modules/PopupService/PopupServiceDemoViewModel.cs/)
+* [Validation](./CS/Modules/PopupService/LoginPopupViewModel.cs/)
+* [Localization Service](./CS/Modules/LocalizationDemo/LocalizationDemoViewModel.cs/)
+* [Print Service](./CS/Modules/PrintServiceDemo/PrintServiceDemoViewModel.cs/)
+* [Save File Picker](./CS/Modules/SaveFilePickerDemo/SaveFilePickerDemoViewModel.cs/)
+* [File Picker](./CS/Modules/FilePickerDemo/FilePickerDemoViewModel.cs/)
+* [File System](./CS/Modules/FileSystemDemo/FileSystemDemoViewModel.cs/)
+* [UI Service](./CS/Modules/UIServiceDemo/UIServiceDemoViewModel.cs/)
+* [Dependency Injections](./CS/Modules/HomeModule/HomePage.xaml#L9) 
 
 ## Documentation
 
