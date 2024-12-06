@@ -8,19 +8,19 @@
 
 The **DevExpress MAUI MVVM Library** ships as part of the [DevExpress .NET MAUI Mobile UI component suite](https://www.devexpress.com/maui/). 
 
-Use the **DevExpress MAUI MVVM Library** to implement the MVVM design pattern in a MAUI application. The library is based on [.NET Community Toolkit](https://learn.microsoft.com/en-us/dotnet/communitytoolkit/).
+Use the **DevExpress MAUI MVVM Library** to leverage MVVM design patterns in your next great MAUI application. Our MVVM library is based on the [.NET Community Toolkit](https://learn.microsoft.com/en-us/dotnet/communitytoolkit/). 
 
 ![DevExpress MVVM Library for .NET MAUI - Overview](./Images/mvvm-structure.png)
 
 ## Requirements
 
-Register your DevExpress NuGet Feed within Visual Studio to restore packages used in this solution. Review the following article for additional information: [Get Started with DevExpress Mobile UI for .NET MAUI](https://docs.devexpress.com/MAUI/403249/get-started). 
+Register your DevExpress NuGet Feed within Visual Studio to restore packages used in this solution. Refer to the following article for additional information: [Get Started with DevExpress Mobile UI for .NET MAUI](https://docs.devexpress.com/MAUI/403249/get-started). 
 
 Watch the following YouTube video to get started with DevExpress .NET MAUI controls: [Setting up a .NET MAUI Project](https://www.youtube.com/watch?v=juJvl5UicIQ).
 
 ## What's in This Repository
 
-This repository demonstrates basic features included in the **DevExpress MAUI MVVM Library**.
+This repository demonstrates the following basic features available in the **DevExpress MAUI MVVM Library**: 
  
 * [Dispatcher](./CS/Modules/DispatcherDemo/DispatcherDemoViewModel.cs/)
 * [Navigation Service](./CS/Modules/NavigationServiceDemo/NavigationServiceDemoViewModel.cs/)
